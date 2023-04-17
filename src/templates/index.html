@@ -1,12 +1,19 @@
 {% extends 'layout.html' %}
-
+{% block title %} Home {% endblock %}
 {% block content %}
 <div class="boxs">
-    <p>Choose your jobs:</p>
-    <div class="jobs">
-        <button type="button" name="pipewall">Pipe Wall Thk</button>
-        <button type="button" name="branch">Pipe Branch</button>
-    </div>
+  <h1>Welcome to Pepery 🎆</h1>
+  <p>Choose your jobs:</p>
+  <div class="jobs">
+    <button
+      type="button"
+      onclick="window.location.href='/wallthk'"
+      name="pipewall"
+    >
+      Pipe Wall Thk
+    </button>
+    <button type="button" name="branch">Pipe Branch</button>
+  </div>
 </div>
 
 {% endblock %}
