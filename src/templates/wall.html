@@ -1,8 +1,31 @@
 {% extends 'layout.html' %}
 {% block title %} Wall Thk {% endblock %}
 {% block content %}
-<div>
-    Wall Thickness Calculation
-</div>
+<h1>
+    Pipe Wall Thickness Calculation
+</h1>
+<div class="input-wrapper">
 
+    <form method="POST">
+        <h2>Input Design Data</h2>
+        <div class="input-data">
+            <label for="material">Material</label>
+            <select name="material">
+                <option value="">Select Material</option>
+                {% for key, value in materials.items() %}
+                
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+            <label for="d_p">Design Pressure</label>
+            <input type="text" name="d_p" placeholder="Pressure in MPa" required/>
+            <label for="d_t">Design Temperature</label>
+            <input type="text" name="d_t" placeholder="Temperature in Celcius" required/>
+            <label for="nps">NPS</label>
+            <input type="text" name="nps" placeholder="NPS" required/>
+        </div>
+        <button type="submit">Run</button>
+    </form>
+</div>
+    
 {% endblock %}

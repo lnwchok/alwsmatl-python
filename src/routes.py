@@ -1,6 +1,6 @@
 from src import app
-from flask import render_template, jsonify
-import src.db as db
+from flask import render_template, request
+import src.libs as libs
 
 
 ### First Page
@@ -10,6 +10,15 @@ def main():
 
 
 ### Wall Thickness
-@app.route("/wallthk")
+@app.route("/wallthk", methods=["POST", "GET"])
 def wallcalc():
-    return render_template('wall.html')
+    if request.method == 'POST':
+        material = request.form['material']
+        d_p = request.form['d_p']
+        d_t = request.form['d_t']
+        nps = request.form['nps']
+
+
+        return request.form['material']
+    else:
+        return render_template('wall.html', materials=libs.List_input_material())

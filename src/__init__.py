@@ -5,4 +5,4 @@ app.config.from_mapping(
     SECRET_KEY='dev'
     )
 
-from src.routes import app 
+from src.routes import app
