@@ -14,11 +14,17 @@ def main():
 def wallcalc():
     if request.method == 'POST':
         material = request.form['material']
-        d_p = request.form['d_p']
-        d_t = request.form['d_t']
+        d_p = float(request.form['d_p'])
+        d_t = float(request.form['d_t'])
         nps = request.form['nps']
+        
+        # Define Stress
+        stress = libs.findAllowStress(material,d_t)
+        # Define E, W, Y-factor
+        Ef = 0
+        Wf = 0
+        Yf = 0
 
-
-        return request.form['material']
+        return "Stress = {:.2f}".format(stress)
     else:
         return render_template('wall.html', materials=libs.List_input_material())

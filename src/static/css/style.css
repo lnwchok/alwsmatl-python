@@ -4,7 +4,8 @@
 
 body {
   inset: 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -71,17 +72,17 @@ button:focus-visible {
 }
 
 .input-wrapper {
-  width: 30rem;
+  width: 35rem;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .input-data {
   width: 100%;
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   grid-template-columns: 1fr 1fr;
-  padding: 2rem;
+  padding: 1rem;
 
 }
 

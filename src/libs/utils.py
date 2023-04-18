@@ -2,7 +2,12 @@
 def List_input_material():
     return {'a0a': 'A53B-SMLS', 'a1a': 'A53B-ERW', 'a0c': 'A106B', 'c0a': 'A312-TP304-SMLS', 'c1a': 'A312-TP304-EFW'}
 
+
 ### Allowance Stress
+import json
+import os
+from flask import url_for
+
 # Linear Interpolation
 # y = y 1 + ( x − x 1 ) ( y 2 − y 1 ) / x 2 − x 1.
 def LInterpolate(x: float, x1: float, x2: float, y1:float, y2:float) -> float:
@@ -27,7 +32,8 @@ def findTempLimit(Tin: float):
 
 # Find  Allowance Stress
 def findAllowStress(matl_code: str, T: float) -> float:
-    with open('src/matldata.json','r') as f:
+    dbfile = os.path.join(os.path.dirname(__file__), '..', 'static', 'db', 'matldata.json')
+    with open(dbfile,'r') as f:
         data = json.load(f)
     if matl_code.upper() not in data: return -1
             # return {"errorflag": True, "message":  "Material " + matl_code + " is not found"}
