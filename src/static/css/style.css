@@ -1,3 +1,9 @@
+:root {
+  --fgcolor: #263849;
+  --bgcolor: #f9f9f9;
+  --bdcolor: #646cff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,9 +15,11 @@ body {
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: var(--fgcolor);
+  /* background-color: #242424; */
+  background-color: var(--bgcolor);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -50,24 +58,31 @@ main {
   font-size: 1.2em;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+.submit {
+  min-width: 5em;
   padding: 0.6em 1.2em;
+}
+
+.button {
+  border-radius: 8px;
+  border: 1px solid var(--fgcolor);
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--bgcolor);
+  color: var(--fgcolor);
   cursor: pointer;
-  min-width: 10em;
 }
 
-button:hover {
-  border-color: #646cff;
+.button:hover {
+  
+  background-color: var(--bdcolor);
+  color: var(--bgcolor);
+  border-color: var(--bdcolor);
 }
 
-button:focus,
-button:focus-visible {
+.button:focus,
+.button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -81,29 +96,60 @@ button:focus-visible {
   width: 100%;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 15rem 15rem;
   padding: 1rem;
 
 }
 
-.input-data>input[type=text] {
+.input-data-textbox {
+  width: 12em;
   font-family: inherit;
   border: 0;
-  border-bottom: 1px solid #646cff;
+  border-bottom: 1px solid var(--bdcolor);
   outline: 0;
   background: transparent;
-  font-size: 1.1em;
+  font-size: 1em;
 
   &::placeholder {
     font-style: italic;
   }
 }
 
-.input-data>select {
+.input-data > select {
   font-family: inherit;
   border: 0;
-  border-bottom: 1px solid #646cff;
+  border-bottom: 1px solid var(--bdcolor);
   outline: 0;
   background: transparent;
   font-size: 1.1em;
 }
+
+.input-data > select > option {
+  font-family: inherit;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  background: inherit;
+  font-size: 1.1em;
+}
+
+.modal {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.modal > ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5em;
+  padding: 0.6em 1.2em;
+
+}
+ .modal > ul > li {
+  display: block;
+  padding: 0.2rem 0.4rem;
+  /* width: 8em; */
+ }

@@ -10,23 +10,43 @@
         <h2>Input Design Data</h2>
         <div class="input-data">
             <label for="material">Material</label>
-            <select name="material">
-                <option value="">Select Material</option>
+            <div>
+                <input class="input-data-textbox" type="text" name="material" placeholder="Select pipe material" id="materialtextbox" required/>
+                <button type="button" class="button" onclick="togglemodal('matmodal')">...</button>
+            </div>
+            <!-- Material List Modal -->
+            <div id="matmodal" style="display: none" class="modal">
+                <ul>
                 {% for key, value in materials.items() %}
-                
-                <option value="{{ key }}">{{ value }}</option>
+                    <li>
+                        <button id="mat-choice" type="button" class="button submit" onclick="getChoice(this, 'matmodal', 'materialtextbox')">{{ value }}</button>
+                    </li>
                 {% endfor %}
-            </select>
+                </ul>
+            </div>
             <label for="d_p">Design Pressure</label>
-            <input type="text" name="d_p" placeholder="Pressure in MPa" required/>
+            <input class="input-data-textbox" type="text" name="d_p" placeholder="Pressure in MPa" required/>
             <label for="d_t">Design Temperature</label>
-            <input type="text" name="d_t" placeholder="Temperature in Celcius" required/>
+            <input class="input-data-textbox" type="text" name="d_t" placeholder="Temperature in Celcius" required/>
             <label for="nps">Collosion Allowance</label>
-            <input type="text" name="d_c" placeholder="CA in mm" required/>
+            <input class="input-data-textbox" type="text" name="d_c" placeholder="CA in mm" required/>
             <label for="nps">NPS</label>
-            <input type="text" name="nps" placeholder="NPS" required/>
+            <div>
+                <input class="input-data-textbox" type="text" name="nps" placeholder="NPS" id="sizetextbox" required/>
+                <button type="button" class="button" onclick="togglemodal('sizemodal')">...</button>
+            </div>
+            <!-- Size List Modal -->
+            <div id="sizemodal" style="display: none" class="modal">
+                <ul>
+                {% for value in pipesize %}
+                    <li>
+                        <button id="mat-choice" type="button" class="button submit" onclick="getChoice(this, 'sizemodal', 'sizetextbox')">{{ value }}</button>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
         </div>
-        <button type="submit">Run</button>
+        <button class="button submit" type="submit">Run</button>
     </form>
 </div>
     

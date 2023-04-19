@@ -2,6 +2,9 @@
 def List_input_material():
     return {'a0a': 'A53B-SMLS', 'a1a': 'A53B-ERW', 'a0c': 'A106B', 'c0a': 'A312-TP304-SMLS', 'c1a': 'A312-TP304-EFW'}
 
+def List_input_NPS():
+    return ['1/2', '3/4', '1', '1.1/4', '1.1/2', '2', '2./2', '3', '3.1/2']
+
 
 ### Allowance Stress
 import json

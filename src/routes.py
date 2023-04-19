@@ -27,4 +27,4 @@ def wallcalc():
 
         return "Stress = {:.2f}".format(stress)
     else:
-        return render_template('wall.html', materials=libs.List_input_material())
+        return render_template('wall.html', materials=libs.List_input_material(), pipesize=libs.List_input_NPS())
